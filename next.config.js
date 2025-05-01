@@ -6,12 +6,16 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'images.microcms-assets.io',
-        pathname: '**',
+        protocol: "https",
+        hostname: "images.microcms-assets.io",
+        pathname: "**",
       },
     ],
-  }
+  },
+  reactStrictMode: true,
+  compiler: {
+    ignoreBrowserErrors: true,
+  },
 };
 
 module.exports = nextConfig;
