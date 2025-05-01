@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
 import Script from "next/script";
+import { Suspense } from "react";
+import { Loading } from "@/components/ui/loading";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,7 +35,9 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="flex min-h-screen flex-col">
             <Header />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1">
+              <Suspense fallback={<Loading />}>{children}</Suspense>
+            </main>
           </div>
         </ThemeProvider>
       </body>
